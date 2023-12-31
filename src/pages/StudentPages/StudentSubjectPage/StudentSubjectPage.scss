@@ -1,0 +1,109 @@
+.StudentSubjectPage {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-size: 48px;
+        font-weight: 500;
+    }
+
+    h5 {
+        font-size: 30px;
+    }
+
+    .LabsStatic {
+        margin-top: 100px;
+        width: 78%
+    }
+
+    .blackLine {
+        width: 95%;
+        margin: 100px 0 50px 0;
+        height: 1px;
+        background-color: black;
+    }
+
+    .labsListWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .labRow {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: rgb(46, 46, 46);
+        position: relative;
+        width: 90%;
+        height: 30px;
+        padding: 20px 10px;
+        align-items: center;
+        border-bottom: 1px solid #57575712;
+        cursor: pointer;
+        transition: ease 200ms;
+
+        .downloadLabBtn {
+            display: block;
+            position: absolute;
+            left: 1%;
+
+            svg {
+                fill: rgb(46, 46, 46);
+                margin-top: 5px;
+                height: 25px;
+                width: 25px;
+            }
+        }
+
+        h2 {
+            margin-right: 6px;
+        }
+
+        h3 {
+            width: 85%;
+        }
+
+        h2,
+        h3,
+        h4 {
+            font-size: 20px;
+        }
+    }
+
+    .labRow:hover {
+        background: rgba(240, 240, 240, 0.728);
+
+        .downloadLabBtn {
+            svg {
+                fill: black;
+            }
+        }
+    }
+
+    .labRow.active {
+        background: rgba(49, 133, 66, 0.217);
+    }
+}
+
+.backButton {
+    position: absolute;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-bottom: 1px solid#333333;
+    color: #333333;
+    left: 11.2%;
+    top: 45px;
+    cursor: pointer;
+    transition: ease-in-out 200ms;
+}
+
+.backButton:hover {
+    padding: 3px 20px 3px 10px;
+    left: calc(11% - 10px);
+}

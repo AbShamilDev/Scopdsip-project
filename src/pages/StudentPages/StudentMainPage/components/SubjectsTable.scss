@@ -1,0 +1,41 @@
+.subjectTableWrapper { 
+    padding: 30px;
+    width: 50%;
+    min-width: 450px;
+    border-radius: 10px;
+    border: 1px solid rgb(196, 196, 196);
+    table {
+        width: 100%;
+        font-size: 20px;
+        border-collapse: collapse;
+        :first-child {
+            td {
+                border-top: none;
+            }
+        }
+        thead {
+            border-bottom: 2px solid #1D4F26;
+            :first-child {
+                text-align: start;
+                padding-left: 10px;
+            }
+            th {
+                font-weight: 600;
+                font-size: 24px;
+                color: #1D4F26;
+            }
+            
+        }
+        tr {
+            height: 40px;
+            td {
+                padding: 5px;
+                border: 1px solid rgb(166, 166, 166);
+                font-weight: 400;
+            }
+            :nth-child(2) {
+                text-align: center;
+            }
+        }
+    }
+}

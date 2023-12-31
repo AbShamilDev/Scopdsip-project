@@ -1,0 +1,90 @@
+.LineWrapper {
+    display: flex;
+    margin-top: 50px!important;
+    padding: 0 50px;
+    height: 120px;
+    gap: 2px;
+    justify-content: center;
+    border-bottom: #1b4d25 solid 2px;
+    align-items: end;
+}
+
+.PinWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 14%;
+    color: #797979;
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+    transition: ease 500ms;
+}
+
+.PinWrapper.show {
+    opacity: 100%;
+    height: 81px;
+    color: #cdcdcd;
+}
+
+.PinWrapper.show.actual {
+    opacity: 100%;
+    height: 120px;
+}
+
+.deadline {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+
+.circle {
+    display: flex;
+    border-radius: 5px;
+    width: 12px;
+    height: 12px;
+    background: #C5C5C5;
+}
+
+.stick {
+    display: flex;
+    height: 40px;
+    width: 2px;
+    background: #C5C5C5
+}
+
+.passed {
+    color: #338140 ; 
+    .circle, .stick {
+        background: #54DB6B; 
+    }
+}
+
+.npassed {
+    color: #6C2828; 
+    .circle, .stick {
+        background: #A13939; 
+    }
+}
+
+.lpassed {
+    color: orange;
+    .circle, .stick {
+        background: #ffc354;
+    }
+}
+
+.actual {
+    color: black;
+    .circle, .stick {
+        background: rgb(61, 61, 61);
+    }
+    .stick {
+        height: 85px;
+    }
+}
+
+@keyframes identifier {
+    
+}

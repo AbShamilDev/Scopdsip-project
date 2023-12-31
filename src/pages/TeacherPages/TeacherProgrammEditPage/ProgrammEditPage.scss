@@ -1,0 +1,541 @@
+.programmEditPageWrapper {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 48px;
+
+    .programmInfo {
+        width: 78%;
+        margin-top: 100px;
+    }
+
+    h1 {
+        font-size: 48px;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .greenLine {
+        width: 80%;
+        height: 6px;
+        background: #E7FAEB;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    table {
+        color: #6C6C6C;
+        border-collapse: collapse;
+        width: 80%;
+
+        thead {
+            border-bottom: 3px solid #C0C0C0;
+            font-size: 25px;
+
+            :first-child {
+                width: 30px;
+            }
+        }
+
+        tbody {
+            position: relative;
+
+            tr {
+                height: 50px;
+                font-size: 25px;
+
+                >:first-child {
+                    text-align: center;
+                }
+
+                >:nth-child(2) {
+                    padding-left: 10px;
+                    width: 73%;
+                    word-break: break-all;
+                }
+
+                >:nth-child(3),
+                >:nth-child(4) {
+                    width: 11%;
+                    text-align: center;
+                }
+
+                td {
+                    .deleteAnimWrapper {
+                        display: none;
+                        position: absolute;
+                        width: 100%;
+                        height: 49px;
+                        left: 0;
+                        margin-top: -24px;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        z-index: 1;
+
+                        .deleteAnim {
+                            position: absolute;
+                            left: 0;
+                            width: 100%;
+                            height: 50px;
+                            opacity: 50%;
+                            animation: deleteAnim 1s linear infinite;
+                            transition: all ease 300ms;
+                        }
+                    }
+
+                    .deleteAnimWrapper.show {
+                        display: block;
+                        animation: appear 200ms ease forwards;
+                    }
+
+                    .deleteAnimWrapper.end {
+                        .deleteAnim {
+                            animation: none;
+                            background-color: white;
+                            opacity: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .downloadSvg {
+            width: 30px;
+            height: 40px;
+
+        }
+    }
+
+    .addLabButton {
+        padding: 7px 100px 3px 100px;
+        border: none;
+        box-shadow: 0 0 4px 2px rgba(129, 129, 129, 0.457);
+        border-radius: 15px;
+        background: #f1f1f1;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 500;
+        transition: ease 200ms;
+        svg {
+            width: 25px;
+            fill: #848484;
+            transition: ease 200ms;
+        }
+    }
+
+    .addLabButton:hover {
+        background: #e6e6e6;
+        svg {
+            fill: rgb(95, 95, 95);
+        }
+    }
+}
+
+.addModalWrapper {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.333);
+    animation: appear ease-out 200ms;
+
+    .addLabModal {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        gap: 35px;
+        width: 40%;
+        padding: 60px;
+        min-height: 400px;
+        border-radius: 10px;
+        background: white;
+        animation: updown 400ms ease-out;
+        overflow: hidden;
+        flex-wrap: wrap;
+
+        .postLoading {
+            display: none;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+        }
+
+        .postLoading.active {
+            display: flex;
+            z-index: 2;
+            opacity: 100;
+            background: #00000080;
+            animation: appear 200ms ease;
+
+            .loadingWrapper {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+
+            }
+
+            .loadingWrapper.success {
+                animation: successUpload 2s ease forwards;
+
+                .topWrapper {
+                    width: 100%;
+                    animation: s !important;
+
+                    .top {
+                        animation: s !important;
+                    }
+                }
+
+                .bottomWrapper {
+                    width: 100%;
+                    animation: s !important;
+
+                    .bottom {
+                        animation: s !important;
+                    }
+                }
+            }
+
+            .content {
+                animation: updown 300ms;
+            }
+        }
+
+        h2 {
+            margin-right: 30%;
+        }
+
+        .closeButton {
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            font-weight: 500;
+            font-size: 20px;
+            cursor: pointer;
+            color: #0000008e;
+            transition: ease 100ms;
+        }
+
+        .closeButton:hover {
+            color: #000;
+        }
+
+        .nameInputWrapper {
+            width: 80%;
+            position: relative;
+
+            .labNameInput {
+                position: relative;
+                z-index: 1;
+                background: transparent;
+                width: 100%;
+                font-size: 20px;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid rgb(165, 165, 165);
+                transition: ease 200ms;
+            }
+
+            .nameLabel {
+                display: block;
+                position: absolute;
+                color: #a2a2a2;
+                font-size: 20px;
+                left: 0;
+                top: -2px;
+                transition: ease 100ms;
+            }
+
+            .nameLabel.active {
+                color: #000;
+                top: -23px;
+                left: -2px;
+                font-size: 15px;
+            }
+
+            span {
+                display: none;
+            }
+
+            span.filled {
+                display: block;
+                position: absolute;
+                color: #2E7F3E;
+                right: -40px;
+                font-size: 30px;
+                top: -20px;
+            }
+        }
+
+        h1 {
+            position: relative;
+            text-align: center;
+            width: 90%;
+        }
+
+        .dateInputsWrapper {
+            display: flex;
+            gap: 10%;
+            width: calc(80% - 20px);
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            flex-direction: column;
+
+            .datePickers {
+                display: flex;
+                flex-direction: row;
+                height: 80px;
+                gap: 30px;
+
+                .beginDatePicker {
+                    width: 40%;
+                    input {
+                        font-size: 15px;
+                    }
+                    p {
+                        font-size: 18px;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+
+        .labFilePickerWrapper {
+            position: relative;
+            width: 80%;
+
+            h1 {
+                width: 100%;
+                text-align: left;
+            }
+
+            input {
+                display: block;
+                pointer-events: painted;
+                position: absolute;
+                top: 40px;
+                left: 1px;
+                opacity: 0;
+                width: 100%;
+                height: 130px;
+            }
+
+            label {
+                display: block;
+                font-size: 30px;
+                width: 100%;
+
+                span {
+                    display: flex;
+                    position: relative;
+                    justify-content: center;
+                    text-align: center;
+                    flex-direction: column;
+                    margin-top: 10px;
+                    font-size: 20px;
+                    width: 100%;
+                    height: 130px;
+                    align-items: center;
+                    background: #f0f0f0;
+                    border: 1px dashed black;
+                    border-radius: 10px;
+                    transition: ease 200ms;
+                    overflow: hidden;
+
+                    p {
+                        color: #6b6b6b;
+                        white-space: pre-wrap;
+                        pointer-events: none;
+                    }
+
+                    .dragDiv {
+                        display: block;
+                        position: absolute;
+                        pointer-events: none;
+                        opacity: 0%;
+                        width: 100%;
+                        height: 215px;
+                        top: 0;
+                        transition: ease 300ms;
+                        background: repeating-linear-gradient(45deg, #d7d7d7,
+                                #d7d7d7 30px,
+                                #a1a1a1 30px,
+                                #a1a1a1 60px);
+                        animation: onDragAnim infinite 1s linear;
+                    }
+
+                    .dragDiv.active {
+                        opacity: 30%;
+                    }
+                }
+
+                span.picked {
+                    background: #a4ffb6;
+
+                    p {
+                        color: #2E7F3E;
+                        font-size: 40px;
+                    }
+                }
+
+                span:hover {
+                    background: #d7d7d7;
+                }
+            }
+
+            .fileWrapper {
+                position: absolute;
+                bottom: 5px;
+
+                p {
+                    margin-top: 10px;
+                    font-size: 15px !important;
+                }
+
+                margin: 0 auto;
+
+                width: 100%;
+                // justify-content: space-between;
+            }
+        }
+
+        .saveButton {
+            width: 200px;
+            height: 40px;
+            border-radius: 15px;
+            padding: 0 20px;
+            box-shadow: 0 0 4px 2px rgba(129, 129, 129, 0.457);
+            border: none;
+            background-color: #f0f0f0;
+            font-size: 20px;
+            font-weight: 500;
+            transition: ease 200ms ;
+        }
+        .saveButton:hover {
+            background-color: rgb(227, 227, 227);
+        }
+    }
+}
+
+.react-datepicker-wrapper {
+    input {
+        width: calc(100% - 37px);
+    }
+}
+
+.addModalWrapper.disappear {
+    animation: disappear ease-in 200ms;
+
+    .addLabModal {
+        animation: downup ease-in 200ms;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 100%;
+    }
+
+    to {
+        opacity: 0%;
+    }
+}
+
+@keyframes updown {
+    from {
+        margin-top: -100px;
+    }
+
+    to {
+        margin-top: 0;
+    }
+}
+
+@keyframes downup {
+    from {
+        margin-top: 0px;
+    }
+
+    to {
+        margin-top: -100px;
+    }
+}
+
+@keyframes onDragAnim {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: -85px;
+    }
+}
+
+@keyframes successUpload {
+    from {
+        top: 0;
+        scale: 1;
+    }
+
+    20% {
+        top: -30px;
+        scale: 1.5;
+        transform: scaleY(1);
+    }
+
+    35% {
+        scale: 1;
+        transform: scaleY(1.2);
+    }
+
+    40% {
+        transform: scaleY(1.4);
+        top: 200px;
+    }
+
+    45% {
+        top: 210px;
+    }
+
+    to {
+        transform: scaleY(0.5);
+        top: -3000px;
+    }
+}
+
+@keyframes deleteAnim {
+    from {
+        background-color: #f4f4f4;
+    }
+
+    50% {
+        background-color: #dbdbdb;
+    }
+
+    to {
+        background-color: #f4f4f4;
+    }
+}
