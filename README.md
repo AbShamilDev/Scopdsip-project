@@ -32,13 +32,22 @@
   <li>CSS</li>
   <li>SCSS</li>
   <li>ReactJS</li>
+  <li>React-router-dom</li>
+  <li>Axios</li>
 </ul>
 <br/>
 <p>Backend:</p>
 <ul>
   <li>ASP.NET</li>
-  <li></li>
-  <li>SCSS</li>
-  <li>ReactJS</li>
-  <li></li>
+  <li>C#</li>
+  <li>Firebase для хранения файлов</li>
+  <li>Postman</li>
 </ul>
+<h2>Скриншоты:</h2>
+<p>Страница авторизации:</p>
+<img src="https://i.ibb.co/WPsjJMw/image.png" alt="image" border="0">
+<p>Главная страница преподавателя:</p>
+<img src="https://i.ibb.co/GT5Wp75/scopdsip-ru-swtest-ru-main.png" alt="image" border="0">
+<p>Страница редактирования программы:</p>
+<img src="https://i.ibb.co/s2vBFtf/programm-edit.png" alt="programm-edit" alt="image" border="0">
+<img src="https://i.ibb.co/WzwVjVZ/programm-edit2.png" alt="programm-edit2" alt="programm-edit" alt="image" border="0">
