@@ -1,6 +1,5 @@
-import Chart from "path/to/Chart.js"
+import Chart from "path/to/Chart.js";
 
 const CircleDiagram = () => {
-    let Diagram = new Chart({})
-
-}
+  let Diagram = new Chart({});
+};
